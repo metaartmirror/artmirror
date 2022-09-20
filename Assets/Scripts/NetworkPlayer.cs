@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
 #if(UNITY_2018_3_OR_NEWER)
 using UnityEngine.Android;
 #endif
-using agora_gaming_rtc;
+// using agora_gaming_rtc;
 
 public class NetworkPlayer : NetworkBehaviour
 {
@@ -16,7 +16,7 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private Vector2 placementArea = new Vector2(-10, 10);
 
     [SerializeField] private string channelName;
-    private IRtcEngine mRtcEngine = null;
+    // private IRtcEngine mRtcEngine = null;
     [SerializeField] private string AppID = "app_id";
 
     private NetworkVariable<NetworkString> playerName = new NetworkVariable<NetworkString>();
@@ -154,17 +154,17 @@ public class NetworkPlayer : NetworkBehaviour
 
             CheckPermission();
 
-            LanuchAgoreEngine();
+            // LanuchAgoreEngine();
 
             SceneSetup.Instance.InitScene();
         }
     }
 
-    private void LanuchAgoreEngine()
-    {
-        mRtcEngine = IRtcEngine.GetEngine(AppID);
-        mRtcEngine.JoinChannel(channelName, "extra", 0);
-    }
+    // private void LanuchAgoreEngine()
+    // {
+    //     mRtcEngine = IRtcEngine.GetEngine(AppID);
+    //     mRtcEngine.JoinChannel(channelName, "extra", 0);
+    // }
 
     private void CheckPermission()
     {
@@ -209,9 +209,9 @@ public class NetworkPlayer : NetworkBehaviour
 
     void OnApplicationQuit()
     {
-        if (mRtcEngine != null)
-        {
-            IRtcEngine.Destroy();
-        }
+        // if (mRtcEngine != null)
+        // {
+        //     IRtcEngine.Destroy();
+        // }
     }
 }
